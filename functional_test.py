@@ -3,17 +3,18 @@ from selenium import webdriver
 
 class NewVisitorTest(unittest.TestCase):
     def setUp(self):
-        browser = webdriver.Chrome()
+        self.browser = webdriver.Chrome()
 
     def tearDown(self):
-        browser.quit()
+        self.browser.quit()
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Open the Web Browser
-        browser.get("http://localhost:8000")
+        self.browser.get("http://localhost:8000")
 
         # See if the title mentions todo list
-        assert 'To-Do' in browser.title
+        self.assertIn("To-Do", self.browser.title)
+        self.fail("Finish the test")
 
         # Insert a task "Buy peacock feathers"
 
