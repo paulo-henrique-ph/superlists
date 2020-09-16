@@ -27,3 +27,7 @@ class NewVisitorTest(unittest.TestCase):
         # Generate a unique url for the user
 
         # Access this unique url and see if the tasks still included
+
+
+if __name__ == "__main__":
+    unittest.main(warnings="ignore")
