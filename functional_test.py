@@ -1,6 +1,12 @@
+import unittest
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+class NewVisitorTest(unittest.TestCase):
+    def setUp(self):
+        browser = webdriver.Chrome()
+
+    def tearDown(self):
+        browser.quit()
 
 # Open the Web Browser
 browser.get("http://localhost:8000")
@@ -20,6 +26,3 @@ assert 'To-Do' in browser.title
 
 # Access this unique url and see if the tasks still included
 
-# End
-
-browser.quit()
