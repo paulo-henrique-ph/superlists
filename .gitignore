@@ -26,6 +26,7 @@ build
 htmlcov
 develop-eggs
 dist
+db.sqlite3
 docs/_build/
 eggs
 include/
