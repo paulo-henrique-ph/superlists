@@ -22,7 +22,7 @@ class ItemModelTest(TestCase):
         second_item.text = "Item the second"
         second_item.save()
 
-        saved_items = Items.objects.all()
+        saved_items = Item.objects.all()
         self.assertEqual(saved_items.count(), 2)
 
         first_saved_item = saved_items[0]
