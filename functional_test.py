@@ -21,7 +21,7 @@ class NewVisitorTest(unittest.TestCase):
 
 
         # See if there is an input box
-        input_box = self.browser.find_elements_by_id("id_new_item")
+        input_box = self.browser.find_element_by_id("id_new_item")
         self.assertEqual(
             input_box.get_attribute("placeholder"),
             "Enter a to-do item"
