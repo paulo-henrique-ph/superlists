@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from lists.models import Item
 
 class HomePageTest(TestCase):
@@ -24,17 +23,20 @@ class HomePageTest(TestCase):
         )
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response["location"], "/")
+        self.assertEqual(response["location"], "/lists/unique-url/")
 
     def test_only_saves_items_when_necessary(self):
         self.client.get("/")
         self.assertEqual(Item.objects.count(), 0)
 
+
+
+class ListViewTest(TestCase):
     def test_displays_all_list_items(self):
         Item.objects.create(text="itemey 1")
         Item.objects.create(text="itemey 2")
 
-        response = self.client.get("/")
+        response = self.client.get("/lists/unique-url/")
 
         self.assertIn("itemey 1", response.content.decode())
         self.assertIn("itemey 2", response.content.decode())
