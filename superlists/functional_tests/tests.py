@@ -64,7 +64,7 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Check if user has unique url
         user_list_url = self.browser.current_url
-        self.assertRegex(user_list_url, r'/lists/.+')
+        self.assertRegex(user_list_url, r'/lists/(\d+)/')
 
         self.browser.quit()
 
