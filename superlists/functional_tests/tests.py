@@ -1,3 +1,4 @@
+from os import envrion
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -5,6 +6,9 @@ from selenium.webdriver.common.keys import Keys
 class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
+        statging_server = envrion.get("STAGING_SERVER")
+        if statging_server:
+            self.live_server_url = f"http://{statging_server}"
 
     def tearDown(self):
         self.browser.quit()
