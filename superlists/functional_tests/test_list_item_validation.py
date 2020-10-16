@@ -11,7 +11,7 @@ class ItemValidationTest(FunctionalTest):
             self.browser.find_element_by_css_selector(
                 ".has-error"
             ).text,
-            "You can't have an empty list"
+            "You can't have an empty list item"
         ))
 
         # Try again with a valid element
@@ -26,7 +26,7 @@ class ItemValidationTest(FunctionalTest):
             self.browser.find_element_by_css_selector(
                 ".has-error"
             ).text,
-            "You can't have an empty list"
+            "You can't have an empty list item"
         ))
 
         # Try once more with a valid element
