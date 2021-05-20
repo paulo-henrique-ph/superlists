@@ -38,5 +38,5 @@ class FunctionalTest(StaticLiveServerTestCase):
                 return fn()
             except (AssertionError, WebDriverException) as err:
                 if time.time() - start_time > MAX_WAIT:
-                    raise
+                    raise err
                 time.sleep(0.5)
