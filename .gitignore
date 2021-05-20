@@ -19,6 +19,7 @@
 .idea
 .installed.cfg
 .noseids
+.scannerwork
 .tox
 .vimrc
 bin
