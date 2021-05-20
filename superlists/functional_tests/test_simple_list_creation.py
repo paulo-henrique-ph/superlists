@@ -14,7 +14,7 @@ class NewVisitorTest(FunctionalTest):
 
 
         # See if there is an input box
-        input_box = self.browser.find_element_by_id("id_new_item")
+        input_box = self.get_item_input_box()
         self.assertEqual(
             input_box.get_attribute("placeholder"),
             "Enter a to-do item"
@@ -30,7 +30,7 @@ class NewVisitorTest(FunctionalTest):
         self.check_for_row_in_list_table("1: Buy peacock feathers")
 
         # Add another task "Use peacock feathers to make a fly"
-        input_box = self.browser.find_element_by_id("id_new_item")
+        input_box = self.get_item_input_box()
         input_box.send_keys("Use peacock feathers to make a fly")
         input_box.send_keys(Keys.ENTER)
 
@@ -46,7 +46,7 @@ class NewVisitorTest(FunctionalTest):
 
     def test_multiple_users_can_start_lists_at_different_urls(self):
         self.browser.get(self.live_server_url)
-        input_box = self.browser.find_element_by_id("id_new_item")
+        input_box = self.get_item_input_box()
         input_box.send_keys("Buy peacock feathers")
         input_box.send_keys(Keys.ENTER)
         self.check_for_row_in_list_table("1: Buy peacock feathers")
@@ -67,7 +67,7 @@ class NewVisitorTest(FunctionalTest):
         self.assertNotIn("make a fly", page_text)
 
         # Add new item to the list
-        input_box = self.browser.find_element_by_id("id_new_item")
+        input_box = self.get_item_input_box()
         input_box.send_keys("Buy milk")
         input_box.send_keys(Keys.ENTER)
         self.check_for_row_in_list_table("1: Buy milk")
