@@ -18,6 +18,7 @@ RUN set -ex \
     && apk del .build-deps
 
 ADD superlists /app
+ADD static /
 WORKDIR /app
 
 ENV VIRTUAL_ENV /.venv
