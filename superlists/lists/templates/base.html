@@ -20,9 +20,9 @@
                         >
                             {{ form.text }}
                             {% csrf_token %}
-                            {% if form.errors %}
+                            {% if error %}
                             <div class="form-group has-error">
-                                <span class="help-block">{{ form.text.errors }}</span>
+                                <span class="help-block">{{ error }}</span>
                             </div>
                             {% endif %}
                         </form>
